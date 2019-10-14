@@ -1,0 +1,3 @@
+D:/ReadingAssistancePhong/ReadingAssistancePhong/app/.cxx/cmake/debug/x86/CMakeFiles/preprocess.dir
+D:/ReadingAssistancePhong/ReadingAssistancePhong/app/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir
+D:/ReadingAssistancePhong/ReadingAssistancePhong/app/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir

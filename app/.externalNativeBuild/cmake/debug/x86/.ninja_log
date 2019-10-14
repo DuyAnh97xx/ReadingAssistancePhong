@@ -1,0 +1,4 @@
+# ninja log v5
+0	2878	0	CMakeFiles/preprocess.dir/C_preprocess.cpp.o	cea80bb67b1c71f3
+5	4201	0	CMakeFiles/preprocess.dir/page_dewarp.cpp.o	c154260584387912
+4201	5007	0	D:/ReadingAssistance_TB_1.0/ReadingAssistance_TB-master/app/build/intermediates/cmake/debug/obj/x86/libpreprocess.so	881e64585741d86d

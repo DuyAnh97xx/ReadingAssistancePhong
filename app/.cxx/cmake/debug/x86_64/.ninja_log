@@ -1,0 +1,10 @@
+# ninja log v5
+2	4982	0	CMakeFiles/preprocess.dir/C_preprocess.cpp.o	98f364a4d784eb9f
+308	5944	0	CMakeFiles/preprocess.dir/page_dewarp.cpp.o	28fe219680732562
+5944	7394	0	D:/ReadingAssistancePhong/ReadingAssistancePhong/app/build/intermediates/cmake/debug/obj/x86_64/libpreprocess.so	f6ba7f7583ed0091
+7	2572	0	CMakeFiles/preprocess.dir/C_preprocess.cpp.o	98f364a4d784eb9f
+14	3894	0	CMakeFiles/preprocess.dir/page_dewarp.cpp.o	28fe219680732562
+3894	5332	0	D:/ReadingAssistancePhong/ReadingAssistancePhong/app/build/intermediates/cmake/debug/obj/x86_64/libpreprocess.so	f6ba7f7583ed0091
+41	6425	0	CMakeFiles/preprocess.dir/C_preprocess.cpp.o	98f364a4d784eb9f
+21	12766	0	CMakeFiles/preprocess.dir/page_dewarp.cpp.o	28fe219680732562
+12766	16118	0	D:/ReadingAssistancePhong/ReadingAssistancePhong/app/build/intermediates/cmake/debug/obj/x86_64/libpreprocess.so	f6ba7f7583ed0091

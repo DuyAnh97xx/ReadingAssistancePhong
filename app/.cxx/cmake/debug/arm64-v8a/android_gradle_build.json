@@ -1,0 +1,63 @@
+
+{
+	"buildFiles" : 
+	[
+		"D:/ReadingAssistancePhong/ReadingAssistancePhong/app/src/main/cpp/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\.cxx\\cmake\\debug\\arm64-v8a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"lib_nlopt-Debug-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "lib_nlopt",
+			"buildType" : "debug",
+			"output" : "D:/ReadingAssistancePhong/ReadingAssistancePhong/app/src/main/cpp/../jniLibs/arm64-v8a/libnlopt.so",
+			"toolchain" : "45444497"
+		},
+		"lib_opencv-Debug-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "lib_opencv",
+			"buildType" : "debug",
+			"output" : "D:/ReadingAssistancePhong/ReadingAssistancePhong/app/src/main/cpp/../jniLibs/arm64-v8a/libopencv_java3.so",
+			"toolchain" : "45444497"
+		},
+		"preprocess-Debug-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "preprocess",
+			"buildCommand" : "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\.cxx\\cmake\\debug\\arm64-v8a --target preprocess",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/Admin/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Admin/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dpreprocess_EXPORTS -ID:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\src\\main\\cpp\\include -ID:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\src\\main\\cpp\\nlopt-2.6.1  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++14 -fexceptions -frtti -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/ReadingAssistancePhong/ReadingAssistancePhong/app/src/main/cpp/page_dewarp.cpp",
+					"workingDirectory" : "D:/ReadingAssistancePhong/ReadingAssistancePhong/app/.cxx/cmake/debug/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/Admin/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Admin/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dpreprocess_EXPORTS -ID:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\src\\main\\cpp\\include -ID:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\src\\main\\cpp\\nlopt-2.6.1  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++14 -fexceptions -frtti -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/ReadingAssistancePhong/ReadingAssistancePhong/app/src/main/cpp/C_preprocess.cpp",
+					"workingDirectory" : "D:/ReadingAssistancePhong/ReadingAssistancePhong/app/.cxx/cmake/debug/arm64-v8a"
+				}
+			],
+			"output" : "D:/ReadingAssistancePhong/ReadingAssistancePhong/app/build/intermediates/cmake/debug/obj/arm64-v8a/libpreprocess.so",
+			"toolchain" : "45444497"
+		}
+	},
+	"toolchains" : 
+	{
+		"45444497" : 
+		{
+			"cCompilerExecutable" : "C:/Users/Admin/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "C:/Users/Admin/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

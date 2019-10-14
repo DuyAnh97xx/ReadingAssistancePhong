@@ -1,0 +1,26 @@
+{
+  "buildFiles": [
+    "D:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\.cxx\\cmake\\debug\\armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "preprocess-Debug-armeabi-v7a": {
+      "artifactName": "preprocess",
+      "buildCommand": "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\.cxx\\cmake\\debug\\armeabi-v7a --target preprocess",
+      "abi": "armeabi-v7a",
+      "output": "D:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libpreprocess.so"
+    },
+    "lib_opencv-Debug-armeabi-v7a": {
+      "artifactName": "lib_opencv",
+      "abi": "armeabi-v7a",
+      "output": "D:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\src\\main\\cpp\\..\\jniLibs\\armeabi-v7a\\libopencv_java3.so"
+    },
+    "lib_nlopt-Debug-armeabi-v7a": {
+      "artifactName": "lib_nlopt",
+      "abi": "armeabi-v7a",
+      "output": "D:\\ReadingAssistancePhong\\ReadingAssistancePhong\\app\\src\\main\\cpp\\..\\jniLibs\\armeabi-v7a\\libnlopt.so"
+    }
+  }
+}
