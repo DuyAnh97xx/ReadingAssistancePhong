@@ -14,7 +14,7 @@
 #include <android/log.h>
 #include "jni.h"
 
-#define DEBUG 0
+//#define DEBUG 0
 inline int rgb(int red, int green, int blue) {
     return (0xFF << 24) | (red << 16) | (green << 8) | blue;
 }
@@ -254,13 +254,13 @@ void BGLBP::run(const cv::Mat &input, cv::Mat &BGLBP)
     }
 }
 
-int PreProcess::take_action() {
-    return action;
-}
+//int PreProcess::take_action() {
+//    return action;
+//}
 
-cv::Point2f* PreProcess::take_point() {
-    return this->point ;
-}
+//cv::Point2f* PreProcess::take_point() {
+//    return this->point ;
+//}
 
 // Camera Adjustment Direction
 void PreProcess::EdgeProcess(){
@@ -277,6 +277,7 @@ void PreProcess::EdgeProcess(){
         linear_equation(cos(original[1]), sin(original[1]), original[0], cos(perpendicular2[1]), sin(perpendicular2[1]), perpendicular2[0], &point[1]);
         linear_equation(cos(parallel[1]), sin(parallel[1]), parallel[0], cos(perpendicular1[1]), sin(perpendicular1[1]), perpendicular1[0], &point[2]);
         linear_equation(cos(parallel[1]), sin(parallel[1]), parallel[0], cos(perpendicular2[1]), sin(perpendicular2[1]), perpendicular2[0], &point[3]);
+
         sort(point, point + 4,comp);
         top_left = point[0];
         top_right = point[1];
@@ -350,17 +351,17 @@ PreProcess::PreProcess(cv::Mat image, float height_threshold, float width_thresh
     original[0] = parallel[0] = perpendicular1[0] = perpendicular2[0] = -1;
 };
 
-int PreProcess::CharSize(char *image){
-    return charSize;
-}
+//int PreProcess::CharSize(char *image){
+//    return charSize;
+//}
 
-float PreProcess::morphological(int charSize){
-    int kerSize = int (charSize/2);
-    if (DEBUG)
-        printf("%d\n", kerSize);
-    char kernel[charSize][kerSize];
-
-}
+//float PreProcess::morphological(int charSize){
+//    int kerSize = int (charSize/2);
+//    if (DEBUG)
+//        printf("%d\n", kerSize);
+//    char kernel[charSize][kerSize];
+//
+//}
 
 void PreProcess::detectEdges(vector<cv::Vec2f> lines) {
     if (lines.size() == 0) {
@@ -374,8 +375,8 @@ void PreProcess::detectEdges(vector<cv::Vec2f> lines) {
     }
 
 
-    float rho0 = this->original[0];
-    float theta0 = this->original[1];
+//    float rho0 = this->original[0];
+//    float theta0 = this->original[1];
     for (int i = 1; i < lines.size(); i++)
     {
         if (numofEdge == 4)
@@ -430,38 +431,42 @@ void PreProcess::process() {
     vector<cv::Vec2f> lines1;
     vector<Vec4i> lines;
     boundingbox(image, lines1);
-    cv::Mat kernel = getStructuringElement(cv::MORPH_RECT,
-                                           cv::Size(charSize, charSize));
-    cv::cvtColor(image, gray_in, cv::COLOR_BGR2GRAY);
-    dilate(gray_in, dilation_dst, kernel, cv::Point(-1, -1), 1);
-    if (DEBUG)
-    {
-        cv::Mat debug;
-        cv::namedWindow("Dilation window", cv::WINDOW_NORMAL);
-        cv::resize(dilation_dst, debug, cv::Size(), 0.25, 0.25);
-        cv::imshow("Dilation window", debug);
-        cv::waitKey(0);
-    }
+    if(this->charSize != 0) {
+        cv::Mat kernel = getStructuringElement(cv::MORPH_RECT,
+                                               cv::Size(charSize, charSize));
+        cv::cvtColor(image, gray_in, cv::COLOR_BGR2GRAY);
+        dilate(gray_in, dilation_dst, kernel, cv::Point(-1, -1), 1);
+//    if (DEBUG)
+////    {
+////        cv::Mat debug;
+////        cv::namedWindow("Dilation window", cv::WINDOW_NORMAL);
+////        cv::resize(dilation_dst, debug, cv::Size(), 0.25, 0.25);
+////        cv::imshow("Dilation window", debug);
+////        cv::waitKey(0);
+////    }
 
-    enforceContrast(dilation_dst, dst, "local");
-    smoothImage(dilation_dst, PreProcess::charSize, &dst);
-    cv::Canny(dst, candy_img, 20, 50, 3, true);
-    if (DEBUG)
-    {
-        cv::Mat candy;
-        cv::resize(candy_img, candy, cv::Size(), 0.5, 0.5);
-        cv::namedWindow("Display Candy", cv::WINDOW_NORMAL);
-        cv::imshow("Display Candy", candy);
-        cv::waitKey(0);
-    }
-    cv::HoughLines(candy_img, lines1, 1, M_PI / 180, 60);
-    detectEdges(lines1);
-    if (1)
-    {
-        showImageWithLine();
-    }
+        enforceContrast(dilation_dst, dst, "local");
+        smoothImage(dilation_dst, PreProcess::charSize, &dst);
+        cv::Canny(dst, candy_img, 20, 50, 3, true);
+//    if (DEBUG)
+//    {
+//        cv::Mat candy;
+//        cv::resize(candy_img, candy, cv::Size(), 0.5, 0.5);
+//        cv::namedWindow("Display Candy", cv::WINDOW_NORMAL);
+//        cv::imshow("Display Candy", candy);
+//        cv::waitKey(0);
+//    }
+        cv::HoughLines(candy_img, lines1, 1, M_PI / 180, 60);
+        detectEdges(lines1);
+        if (1)
+        {
+            showImageWithLine();
+        }
 
-    EdgeProcess();
+        EdgeProcess();
+    } else{
+        PreProcess::action = Action::nang_len;
+    }
 }
 
 void PreProcess::showImageWithLine() {
@@ -537,23 +542,26 @@ void PreProcess::boundingbox(cv::Mat src, vector <cv::Vec2f> lines){
         }
     }
 
-    char_size = (int) char_size / count;
-    this->charSize = (int) char_size;
-    Mat drawing = Mat::zeros( src.size(), CV_8UC3 );
-    for( int i = 0; i< contours.size(); i++ ) {
-        Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
-        drawContours( drawing, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
-        if (boundRect[i].height == 0)
-            continue;
-        rectangle( drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0 );
+    if (count != 0) {
+        char_size = (int)char_size / count;
+        this->charSize = (int)char_size;
+        Mat drawing = Mat::zeros( src.size(), CV_8UC3 );
+        for( int i = 0; i< contours.size(); i++ ) {
+            Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+            drawContours( drawing, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
+            if (boundRect[i].height == 0)
+                continue;
+            rectangle( drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0 );
+        }
     }
 
-    if (DEBUG) {
-        namedWindow( "Contours", WINDOW_AUTOSIZE );
-        cv::resize(drawing, drawing, cv::Size(), 0.25, 0.25);
-        imshow( "Contours", drawing );
-        waitKey(0);
-    }
+
+//    if (DEBUG) {
+//        namedWindow( "Contours", WINDOW_AUTOSIZE );
+//        cv::resize(drawing, drawing, cv::Size(), 0.25, 0.25);
+//        imshow( "Contours", drawing );
+//        waitKey(0);
+//    }
 }
 
 void resize_to_screen1(cv::Mat src, cv::Mat *dst, int max_width = 1280, int max_height = 700)
